@@ -40,7 +40,6 @@ public class ChallengeActivity extends AppCompatActivity {
     float centerX, centerY;
     String lastTierLabel = "";
 
-    // ---------------- TIER SYSTEM ----------------
 
     private static class Tier {
         int xp;
@@ -66,7 +65,6 @@ public class ChallengeActivity extends AppCompatActivity {
         }
     }
 
-    // ---------------- VEDIC QUESTION CLASS ----------------
 
     private static class VedicQuestion {
         String text;
@@ -78,7 +76,6 @@ public class ChallengeActivity extends AppCompatActivity {
         }
     }
 
-    // ---------------- VEDIC GENERATORS ----------------
 
     private VedicQuestion generateEasy() {
         int a = 9 - random.nextInt(4);
@@ -130,7 +127,6 @@ public class ChallengeActivity extends AppCompatActivity {
         }
     }
 
-    // ------------------------------------------------
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -171,7 +167,6 @@ public class ChallengeActivity extends AppCompatActivity {
         startTimer();
     }
 
-    // ---------------- TIMER ----------------
 
     private void startTimer() {
         timer = new CountDownTimer(60000, 1000) {
@@ -188,7 +183,6 @@ public class ChallengeActivity extends AppCompatActivity {
         }.start();
     }
 
-    // ---------------- QUESTION GENERATION ----------------
 
     private void generateQuestion() {
         hideBaba();
@@ -206,7 +200,6 @@ public class ChallengeActivity extends AppCompatActivity {
         generateSmartOptions();
     }
 
-    // ---------------- SMART OPTIONS ----------------
 
     private void generateSmartOptions() {
 
@@ -254,7 +247,6 @@ public class ChallengeActivity extends AppCompatActivity {
         optionLeft.setText(String.valueOf(options.get(3)));
     }
 
-    // ---------------- DIFFICULTY RING ----------------
 
     private void updateDifficultyRing(String label) {
 
@@ -294,7 +286,6 @@ public class ChallengeActivity extends AppCompatActivity {
         lastTierLabel = label;
     }
 
-    // ---------------- JOYSTICK ----------------
 
     private void setupJoystick() {
 
@@ -361,7 +352,6 @@ public class ChallengeActivity extends AppCompatActivity {
         checkAnswer(selectedOption);
     }
 
-    // ---------------- ANSWER CHECK ----------------
 
     private void checkAnswer(TextView option) {
 
@@ -406,8 +396,6 @@ public class ChallengeActivity extends AppCompatActivity {
         option.postDelayed(this::generateQuestion, 800);
     }
 
-    // ---------------- BABA ----------------
-
     private void showEncouragedBaba() {
         babaReaction.setVisibility(View.VISIBLE);
         babaReaction.setImageResource(R.drawable.baba_encouraged);
@@ -421,8 +409,6 @@ public class ChallengeActivity extends AppCompatActivity {
     private void hideBaba() {
         babaReaction.setVisibility(View.INVISIBLE);
     }
-
-    // ---------------- VISUAL FEEDBACK ----------------
 
     private void showFloatingText(String text) {
         floatingText.setText(text);
@@ -459,8 +445,6 @@ public class ChallengeActivity extends AppCompatActivity {
                 .start();
     }
 
-    // ---------------- END GAME ----------------
-
     private void endGame() {
         if (timer != null) timer.cancel();
 
@@ -471,8 +455,6 @@ public class ChallengeActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-
-    // ---------------- FEEDBACK ----------------
 
     private void performHaptic(View view) {
         if (AppSettings.isHapticsEnabled(this)) {
