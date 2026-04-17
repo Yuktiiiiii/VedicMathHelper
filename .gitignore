@@ -13,3 +13,10 @@
 .externalNativeBuild
 .cxx
 local.properties
+# Keep secrets safe
+google-services.json
+app/google-services.json
+local.properties
+*.jks
+*.keystore
+.env
